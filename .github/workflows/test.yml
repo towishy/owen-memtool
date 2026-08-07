@@ -1,0 +1,20 @@
+name: Windows validation
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run Pester suite
+        shell: powershell
+        run: |
+          $result = Invoke-Pester -Path .\tests -PassThru
+          if ($result.FailedCount -gt 0) { exit 1 }

@@ -1,0 +1,7 @@
+reports/*
+!reports/.gitkeep
+dist/
+*.status.json
+*.tmp
+Thumbs.db
+.DS_Store
