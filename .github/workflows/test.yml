@@ -16,5 +16,7 @@ jobs:
       - name: Run Pester suite
         shell: powershell
         run: |
+          Install-Module Pester -RequiredVersion 3.4.0 -Scope CurrentUser -Force -SkipPublisherCheck
+          Import-Module Pester -RequiredVersion 3.4.0 -Force
           $result = Invoke-Pester -Path .\tests -PassThru
           if ($result.FailedCount -gt 0) { exit 1 }
