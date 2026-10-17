@@ -11,11 +11,10 @@
 <!-- ui-portal-usage:end -->
 
 <!-- ui-foundation-design-guide:start -->
-## UI Foundation Lab 디자인 가이드
+## 공통 UI 디자인·AI 구현 가이드
 
-- 모든 UI 설계·구현 전에 [UI-FOUNDATION-DESIGN-GUIDE.md](UI-FOUNDATION-DESIGN-GUIDE.md)를 먼저 읽는다.
-- UI Foundation Lab 왼쪽 패널의 26개 UI를 모두 `Priority 1` 디자인 후보로 취급한다.
-- `Priority 1` 안에서는 Clear glass search, controls, workflow를 가장 먼저 검토한다.
-- 나머지 Lab specimen을 검토한 뒤에만 앱 전용 신규 디자인이나 외부 reference를 고려한다.
-- 이 프로젝트의 기존 제품 제약과 더 엄격한 접근성·runtime 규칙은 그대로 유지한다.
+- UI·UX·frontend·접근성·반응형 작업 전에 [공통 가이드 안내](docs/wiki-design/README.md)와 [개발 가이드](UI-FOUNDATION-DESIGN-GUIDE.md)를 읽는다. 필요한 owner와 reference만 선택하며 문서 전체를 일괄 로드하지 않는다.
+- 시각·동작 기준은 [공통 DESIGN](docs/wiki-design/lib/ui-foundation/DESIGN.md), 구현 API·maturity·선택 절차는 [AI-USAGE](docs/wiki-design/lib/ui-foundation/AI-USAGE.md)가 소유한다.
+- 이 경로는 과거 WIKI 절대경로, 이전 Lab 개수, 프로젝트 DESIGN.md에 내장된 과거 공통 스냅샷보다 우선한다. 프로젝트 고유 output job·제품 결정과 더 엄격한 보안·접근성·runtime 제약은 보존한다.
+- 공통 복사본은 WIKI에서 단방향 동기화한다. 공통 기준 변경은 원본 WIKI에서 하고 로컬 복사본은 직접 수정하지 않는다. UI가 없는 프로젝트에 새 화면을 만들라는 지시가 아니다.
 <!-- ui-foundation-design-guide:end -->

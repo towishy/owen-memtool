@@ -1,0 +1,304 @@
+{
+  "schemaVersion": 1,
+  "owner": "wiki-project-design-guides",
+  "sourceRoot": "D:\\GITHUB\\wiki",
+  "bundleDigest": "3b58428552a49f5d8f1962168de32566da9635715e30cb6cd46196e6afdacae8",
+  "inputs": [
+    {
+      "path": ".github/skills/ui-portal-intake/SKILL.md",
+      "sha256": "b57b0a708c14987937b2a67c114600fe831b6ebe6c3dff227141cfbc1c6d3181"
+    },
+    {
+      "path": ".github/skills/ui-quality-audit/SKILL.md",
+      "sha256": "aa393621e2d5f36301e77cc6ee901c0d11d39f0928189cf57a9fc0a6df66b85c"
+    },
+    {
+      "path": ".github/skills/ui-quality-audit/references/audit-rubric.md",
+      "sha256": "4373aff1bb64dae5025c1f123e1a6abeae5346ef8b7b931d148c9042a92e8bd4"
+    },
+    {
+      "path": ".github/skills/ui-quality-audit/references/better-skills-notice.md",
+      "sha256": "6c5d46bc950ae256ff1f334f825a9bcce5f48f5bc945f84b728a258dd32feed8"
+    },
+    {
+      "path": ".github/skills/ui-quality-audit/references/external-detectors.md",
+      "sha256": "6aaf9e249e0d10fc8399a021fc7e9ae954820925978439bed480e2fe073436d9"
+    },
+    {
+      "path": ".github/skills/ui-quality-audit/references/flow-motion-performance.md",
+      "sha256": "834a33f294ab67e75d9e89d25e1d5151449e12ea41fd2bded8b1634083ebdafe"
+    },
+    {
+      "path": ".github/skills/ui-quality-audit/references/hallmark-notice.md",
+      "sha256": "50cd97011275ee7a1eee0e833fd2e3ceb1c04c8c8c6d34a1c7c13998f5e3f015"
+    },
+    {
+      "path": ".github/skills/ui-quality-audit/references/styleseed-notice.md",
+      "sha256": "98c20a1b1fc98b16c08d2e78320d842d0f319052928db80c25a03b52527b95fd"
+    },
+    {
+      "path": "UI-FOUNDATION-DESIGN-GUIDE.md",
+      "sha256": "1d1333a5f443615c828f6ca2513fb21d0b95c2308001636b1eef8f5a18d50661"
+    },
+    {
+      "path": "UI-Portal/INTAKE-WORKFLOW.md",
+      "sha256": "23a2ba25825415fe107ca0dcdcf4dcf934857ad9a685e212cb50bbed8dd4ac93"
+    },
+    {
+      "path": "UI-Portal/README.md",
+      "sha256": "f17cd5c8fa1d36c16662f987acfcd4b712e0b2323a1c3f86a0d3ba42eb8432fe"
+    },
+    {
+      "path": "docs/project-design-guide-sync.md",
+      "sha256": "8ea3ed9cdd4dd6c8f0fd9df5a746dad921674d05c657ca6290367113ea9cc091"
+    },
+    {
+      "path": "docs/ui-portal-ai-usage-operations.md",
+      "sha256": "37d97bdab4861087d4cd24b23b063c5fdbe32c7c785855c37f95302c31620bb9"
+    },
+    {
+      "path": "lib/lucian-uxui/README.md",
+      "sha256": "f1069ff4c6f3780b82b817f99a66ae911ff0631dd1ca557fc38f8e89643df911"
+    },
+    {
+      "path": "lib/ui-foundation/AI-USAGE.md",
+      "sha256": "b59188ffc8e79ac3cc84b1e63ce29600391950c43ccffbaa5e97f2e7033e2e5e"
+    },
+    {
+      "path": "lib/ui-foundation/CONSUMERS.md",
+      "sha256": "99294d2433e2a3b7af6c950fd775875899661fa0b344e16c05b126ebe8eeca96"
+    },
+    {
+      "path": "lib/ui-foundation/DESIGN-WATCHLIST.md",
+      "sha256": "fcd1781e26a3f37ff86a72e7b95cd322b91330bc1a079e1bb70a4915e06bfbaa"
+    },
+    {
+      "path": "lib/ui-foundation/DESIGN.md",
+      "sha256": "08463dc7c2e2c22d8f6a4817e770df8c85ca812b87bc7441a335bcdb6f8846de"
+    },
+    {
+      "path": "lib/ui-foundation/README.md",
+      "sha256": "9398907d4f1aee32739f35ef7c5de4dd5a0ce0b30a0b9b0d5bc0a0a2276ac505"
+    },
+    {
+      "path": "lib/ui-foundation/REFERENCE-STUDY-BADGES-AND-TAGS.md",
+      "sha256": "f92dc298f4d2a21f482d95e66d2672cfbc47eea91ed9ec167b5b22436142f685"
+    },
+    {
+      "path": "lib/ui-foundation/REFERENCE-STUDY-BENCHO-BLOCKS.md",
+      "sha256": "31459a0e021186ccaa883e7935eb0851ff7a3429f92f54302db660f3145b6d28"
+    },
+    {
+      "path": "lib/ui-foundation/REFERENCE-STUDY-CLEAR-OPERATIONAL-UI.md",
+      "sha256": "160238fcecc1cb0b90896f66b9b2b5da5a669517aac21cdf2386763fddb50a17"
+    },
+    {
+      "path": "lib/ui-foundation/REFERENCE-STUDY-CORNER-RATIO.md",
+      "sha256": "eb9e972b526e8396949c89d50300f7dcd0906bc747c6002837abd84415fb919b"
+    },
+    {
+      "path": "lib/ui-foundation/REFERENCE-STUDY-CSS-EFFECT-GENERATORS.md",
+      "sha256": "4b71a23642064710aa162ed5df90d47e135b02efbd5e2d03baca32976f476ac1"
+    },
+    {
+      "path": "lib/ui-foundation/REFERENCE-STUDY-DESIGNMOTIONHQ-UI-SYSTEMS.md",
+      "sha256": "36f659d3030be56d307c5cf0bd77ccb0547c9f9c105ffe7c440f7b3922c6edfe"
+    },
+    {
+      "path": "lib/ui-foundation/REFERENCE-STUDY-FEATURE-SHOWCASE.md",
+      "sha256": "81cd80d0465369722115f72f5c4310ddac7a58963d7f5f0ec7187b8f015c8322"
+    },
+    {
+      "path": "lib/ui-foundation/REFERENCE-STUDY-FONT-SOURCING.md",
+      "sha256": "67ad046877ae07774e3b9603eac3b2e74c5d72fffadc510e7a3c0d0c4da68eaf"
+    },
+    {
+      "path": "lib/ui-foundation/REFERENCE-STUDY-FOOD-COMMERCE-DASHBOARD.md",
+      "sha256": "bd046c7b951f353ac41836c76f7f0b4e571bb6c13278e26b1e906164369ae745"
+    },
+    {
+      "path": "lib/ui-foundation/REFERENCE-STUDY-FROSTED-SCROLLBAR.md",
+      "sha256": "ca0e7fca9ebcf4b84a3bf91b34dc7b3472ab699e6393f900d751b5c41c7c53e6"
+    },
+    {
+      "path": "lib/ui-foundation/REFERENCE-STUDY-GLASS-FRAME-WINDOW.md",
+      "sha256": "038a2092949aa67aeb8bbea091a5e692a3fe51d496809c3f67d83eca46838d69"
+    },
+    {
+      "path": "lib/ui-foundation/REFERENCE-STUDY-GLINT-WIDGETS.md",
+      "sha256": "c69f7396d847bc54340988293c32ef031503c6384f30d4438b5879555142a8f0"
+    },
+    {
+      "path": "lib/ui-foundation/REFERENCE-STUDY-HIERARCHICAL-FLYING-PANELS.md",
+      "sha256": "238ff37c87f5017320c91365e60b7870c912eb8845af95c295687edab1905a86"
+    },
+    {
+      "path": "lib/ui-foundation/REFERENCE-STUDY-KNOWLEDGE-ROOMS.md",
+      "sha256": "0a213e2d1b54fcdc66b1625a5bc91364e8fbdc06adc05465f99ecc68c56ef963"
+    },
+    {
+      "path": "lib/ui-foundation/REFERENCE-STUDY-LUCIAN-UXUI.md",
+      "sha256": "823941a7fa0791c86f8e31e37724a9016a8ae6bee86541bcbef21dfc7d5c8a6a"
+    },
+    {
+      "path": "lib/ui-foundation/REFERENCE-STUDY-MEGA-MENU.md",
+      "sha256": "9c3a84ea569f70c32872e385ed92b218b993e1b01c4061a7a374a8e133cdb011"
+    },
+    {
+      "path": "lib/ui-foundation/REFERENCE-STUDY-MICRO-INTERACTIONS.md",
+      "sha256": "bbbc7483f872f7b2669cfa8902d81874c31c70b1b9ecc4707600fe0bc4fdaa23"
+    },
+    {
+      "path": "lib/ui-foundation/REFERENCE-STUDY-MICRO-UI.md",
+      "sha256": "7b63638172f9beca6ad01787984bfb9a53ba94aa5f2b8f335355d1006d2a29bf"
+    },
+    {
+      "path": "lib/ui-foundation/REFERENCE-STUDY-MOBILE-ASSISTANT.md",
+      "sha256": "67ba5500f3ecfa4307e00a7400e5494a32d56e8eacbc66332b60a2874140a8de"
+    },
+    {
+      "path": "lib/ui-foundation/REFERENCE-STUDY-MOBILE-COMMERCE.md",
+      "sha256": "18eca39a83cc1a48903cbfc50809b1e36308cc43280f94c1cbf741c29d512e26"
+    },
+    {
+      "path": "lib/ui-foundation/REFERENCE-STUDY-MOBILE-FORM-FLOW.md",
+      "sha256": "69472af619e1a467a860d297284bb6e9d7c27f9ecbd7d60f200bcff2aa868850"
+    },
+    {
+      "path": "lib/ui-foundation/REFERENCE-STUDY-MOBILE-TASK-DASHBOARD.md",
+      "sha256": "2b5db634687c2fd9e97c224f190ba943e238f8a7b8f5014ee355e9268538a687"
+    },
+    {
+      "path": "lib/ui-foundation/REFERENCE-STUDY-MOTION-GRAPHICS.md",
+      "sha256": "886f05182cc14ad7d54506b9dca991a2736a85c8bbe892bae6355bc425f1663c"
+    },
+    {
+      "path": "lib/ui-foundation/REFERENCE-STUDY-NONDEV-MOTION-DICTIONARY.md",
+      "sha256": "8503b241d3fa5db4f23ec9b7b28456a40882d731d51bc0501ee6d47fafcee38b"
+    },
+    {
+      "path": "lib/ui-foundation/REFERENCE-STUDY-PHYSICAL-BOOK-INTERACTION.md",
+      "sha256": "1c42e75673f63de3c953129c3dd03303d7fa240b60637d9930f544a27913a6b8"
+    },
+    {
+      "path": "lib/ui-foundation/REFERENCE-STUDY-QUIET-GLASS-WORKSPACE.md",
+      "sha256": "a93db53bd598beee9ffd8029ac2951502e1272ab4a03f36e1d9a1e0cae9a6958"
+    },
+    {
+      "path": "lib/ui-foundation/REFERENCE-STUDY-RARE-UI.md",
+      "sha256": "cfaf3400e9293cc23e6f8c67a443adfe7cc0a0d193b7a00485b1c92b4b367b9e"
+    },
+    {
+      "path": "lib/ui-foundation/REFERENCE-STUDY-SARANG-SITE-NAVIGATION.md",
+      "sha256": "8b886e193e7520e6934948bc98c241bb4390ad32309acb2b50ec9214938ca669"
+    },
+    {
+      "path": "lib/ui-foundation/REFERENCE-STUDY-SEGMENTED-CONTROLS.md",
+      "sha256": "483117600d6fe45273a7fce43ce5fad566fcdcdfb398f8d26df582a1bdf6a16d"
+    },
+    {
+      "path": "lib/ui-foundation/REFERENCE-STUDY-SETTINGS-PANELS.md",
+      "sha256": "72d44dd4a29c76011249450fabea62eb56e26cb270cba4e6ea0e0879f7ca444f"
+    },
+    {
+      "path": "lib/ui-foundation/REFERENCE-STUDY-SHADCN-COMPONENT-TRANSFER.md",
+      "sha256": "dc425f9d705752d18b7129dd493ac64d24aafc91b29d1bb08bec8934f29e1703"
+    },
+    {
+      "path": "lib/ui-foundation/REFERENCE-STUDY-SMOOTHUI.md",
+      "sha256": "c471207282d47f589280faf1f4280a8c746480199601aae330835e4e1f9c3383"
+    },
+    {
+      "path": "lib/ui-foundation/REFERENCE-STUDY-VIBE-PROMPTS.md",
+      "sha256": "b57392c93abadc626cf64fb22fcd436222d7466eafa74aa29d6bcb3f073a91e7"
+    },
+    {
+      "path": "lib/ui-foundation/REFERENCE-STUDY-WEATHER-ORB-WIDGET.md",
+      "sha256": "f03551286ce04f0fbd110f3fc519665f2b4e0080c18211c831ebbda05c73f57b"
+    },
+    {
+      "path": "lib/ui-foundation/REFERENCE-STUDY-WHITE-INSTRUMENT.md",
+      "sha256": "c5f017299efbebc9cb4ecfacf8dde24234d685756ec83f56ae36fd75d13bae91"
+    },
+    {
+      "path": "lib/ui-foundation/REFERENCE-STUDY-WORKFLOW-BUILDER.md",
+      "sha256": "e16cfef3685097206caaf72102bd8e2949094f24c6fedd21e6dc448c1f09e03b"
+    },
+    {
+      "path": "lib/ui-foundation/tokens/tokens.css",
+      "sha256": "679f51eea7a42a7d054337bfd686576b209e65545ce446f6c324f69118cdae9b"
+    },
+    {
+      "path": "lib/ui-foundation/tokens/tokens.json",
+      "sha256": "77a167161f7395c6244993748fa8d589d256c33079054334418a91c1dd097b1f"
+    },
+    {
+      "path": "lib/ui-lab/README.md",
+      "sha256": "7c75ba33de8f36de0547802604a78445b61e3bd099e039ae744c7bef73bf4949"
+    }
+  ],
+  "files": {
+    ".github/instructions/wiki-design.instructions.md": "153f7b6ac491aaf74fef3f64e90ec462f45dde33ea001e0b5f261adf90903d92",
+    "docs/wiki-design/.github/skills/ui-portal-intake/SKILL.md": "b57b0a708c14987937b2a67c114600fe831b6ebe6c3dff227141cfbc1c6d3181",
+    "docs/wiki-design/.github/skills/ui-quality-audit/references/audit-rubric.md": "4373aff1bb64dae5025c1f123e1a6abeae5346ef8b7b931d148c9042a92e8bd4",
+    "docs/wiki-design/.github/skills/ui-quality-audit/references/better-skills-notice.md": "6c5d46bc950ae256ff1f334f825a9bcce5f48f5bc945f84b728a258dd32feed8",
+    "docs/wiki-design/.github/skills/ui-quality-audit/references/external-detectors.md": "6aaf9e249e0d10fc8399a021fc7e9ae954820925978439bed480e2fe073436d9",
+    "docs/wiki-design/.github/skills/ui-quality-audit/references/flow-motion-performance.md": "834a33f294ab67e75d9e89d25e1d5151449e12ea41fd2bded8b1634083ebdafe",
+    "docs/wiki-design/.github/skills/ui-quality-audit/references/hallmark-notice.md": "50cd97011275ee7a1eee0e833fd2e3ceb1c04c8c8c6d34a1c7c13998f5e3f015",
+    "docs/wiki-design/.github/skills/ui-quality-audit/references/styleseed-notice.md": "98c20a1b1fc98b16c08d2e78320d842d0f319052928db80c25a03b52527b95fd",
+    "docs/wiki-design/.github/skills/ui-quality-audit/SKILL.md": "264dc0ce7edf6168f36e17b86871661192ee76c33db0361fecca23d607598204",
+    "docs/wiki-design/docs/project-design-guide-sync.md": "44ca9c0ab2753f7b7208579a0911a039ecd263f5ec64eefefc55de6e85e4c573",
+    "docs/wiki-design/docs/ui-portal-ai-usage-operations.md": "8d5e192453f6e1a1b719caa288f796a7aed8a02a8d349bf47e98bedbae40b01c",
+    "docs/wiki-design/lib/lucian-uxui/README.md": "7fdf019a2c1ac09f15632a72485a45abbc80eeb02b34371d1ba6cb7125af6cc3",
+    "docs/wiki-design/lib/ui-foundation/AI-USAGE.md": "027cec61aaecde40b437f78852b2cffa99213ab36a9ef3288d40d27b3f0a9b5c",
+    "docs/wiki-design/lib/ui-foundation/CONSUMERS.md": "99294d2433e2a3b7af6c950fd775875899661fa0b344e16c05b126ebe8eeca96",
+    "docs/wiki-design/lib/ui-foundation/DESIGN-WATCHLIST.md": "fcd1781e26a3f37ff86a72e7b95cd322b91330bc1a079e1bb70a4915e06bfbaa",
+    "docs/wiki-design/lib/ui-foundation/DESIGN.md": "08463dc7c2e2c22d8f6a4817e770df8c85ca812b87bc7441a335bcdb6f8846de",
+    "docs/wiki-design/lib/ui-foundation/README.md": "df68d50618da52949e9933513a16654407cfa797c727f40e93fab6f7ffebb2ec",
+    "docs/wiki-design/lib/ui-foundation/REFERENCE-STUDY-BADGES-AND-TAGS.md": "d106fd451344832a4da93dc7b7b7bffdcc943900ecde40d934270eb9d37cd2ad",
+    "docs/wiki-design/lib/ui-foundation/REFERENCE-STUDY-BENCHO-BLOCKS.md": "fd1c933924682602c0d32f738011495db7062bb2f6ffcf06e354f8dfa6faa625",
+    "docs/wiki-design/lib/ui-foundation/REFERENCE-STUDY-CLEAR-OPERATIONAL-UI.md": "160238fcecc1cb0b90896f66b9b2b5da5a669517aac21cdf2386763fddb50a17",
+    "docs/wiki-design/lib/ui-foundation/REFERENCE-STUDY-CORNER-RATIO.md": "eb9e972b526e8396949c89d50300f7dcd0906bc747c6002837abd84415fb919b",
+    "docs/wiki-design/lib/ui-foundation/REFERENCE-STUDY-CSS-EFFECT-GENERATORS.md": "4b71a23642064710aa162ed5df90d47e135b02efbd5e2d03baca32976f476ac1",
+    "docs/wiki-design/lib/ui-foundation/REFERENCE-STUDY-DESIGNMOTIONHQ-UI-SYSTEMS.md": "36f659d3030be56d307c5cf0bd77ccb0547c9f9c105ffe7c440f7b3922c6edfe",
+    "docs/wiki-design/lib/ui-foundation/REFERENCE-STUDY-FEATURE-SHOWCASE.md": "ff46f744f564e06705a20732cf9781d487f35f1d0523d66f896b9959d001f35c",
+    "docs/wiki-design/lib/ui-foundation/REFERENCE-STUDY-FONT-SOURCING.md": "67ad046877ae07774e3b9603eac3b2e74c5d72fffadc510e7a3c0d0c4da68eaf",
+    "docs/wiki-design/lib/ui-foundation/REFERENCE-STUDY-FOOD-COMMERCE-DASHBOARD.md": "bd046c7b951f353ac41836c76f7f0b4e571bb6c13278e26b1e906164369ae745",
+    "docs/wiki-design/lib/ui-foundation/REFERENCE-STUDY-FROSTED-SCROLLBAR.md": "ca0e7fca9ebcf4b84a3bf91b34dc7b3472ab699e6393f900d751b5c41c7c53e6",
+    "docs/wiki-design/lib/ui-foundation/REFERENCE-STUDY-GLASS-FRAME-WINDOW.md": "038a2092949aa67aeb8bbea091a5e692a3fe51d496809c3f67d83eca46838d69",
+    "docs/wiki-design/lib/ui-foundation/REFERENCE-STUDY-GLINT-WIDGETS.md": "c69f7396d847bc54340988293c32ef031503c6384f30d4438b5879555142a8f0",
+    "docs/wiki-design/lib/ui-foundation/REFERENCE-STUDY-HIERARCHICAL-FLYING-PANELS.md": "238ff37c87f5017320c91365e60b7870c912eb8845af95c295687edab1905a86",
+    "docs/wiki-design/lib/ui-foundation/REFERENCE-STUDY-KNOWLEDGE-ROOMS.md": "0a213e2d1b54fcdc66b1625a5bc91364e8fbdc06adc05465f99ecc68c56ef963",
+    "docs/wiki-design/lib/ui-foundation/REFERENCE-STUDY-LUCIAN-UXUI.md": "952d4c57652ef279c2678db9d61067591f93f880402b3a17bbc19bf011a6d197",
+    "docs/wiki-design/lib/ui-foundation/REFERENCE-STUDY-MEGA-MENU.md": "9c3a84ea569f70c32872e385ed92b218b993e1b01c4061a7a374a8e133cdb011",
+    "docs/wiki-design/lib/ui-foundation/REFERENCE-STUDY-MICRO-INTERACTIONS.md": "bbbc7483f872f7b2669cfa8902d81874c31c70b1b9ecc4707600fe0bc4fdaa23",
+    "docs/wiki-design/lib/ui-foundation/REFERENCE-STUDY-MICRO-UI.md": "7b63638172f9beca6ad01787984bfb9a53ba94aa5f2b8f335355d1006d2a29bf",
+    "docs/wiki-design/lib/ui-foundation/REFERENCE-STUDY-MOBILE-ASSISTANT.md": "67ba5500f3ecfa4307e00a7400e5494a32d56e8eacbc66332b60a2874140a8de",
+    "docs/wiki-design/lib/ui-foundation/REFERENCE-STUDY-MOBILE-COMMERCE.md": "18eca39a83cc1a48903cbfc50809b1e36308cc43280f94c1cbf741c29d512e26",
+    "docs/wiki-design/lib/ui-foundation/REFERENCE-STUDY-MOBILE-FORM-FLOW.md": "69472af619e1a467a860d297284bb6e9d7c27f9ecbd7d60f200bcff2aa868850",
+    "docs/wiki-design/lib/ui-foundation/REFERENCE-STUDY-MOBILE-TASK-DASHBOARD.md": "2b5db634687c2fd9e97c224f190ba943e238f8a7b8f5014ee355e9268538a687",
+    "docs/wiki-design/lib/ui-foundation/REFERENCE-STUDY-MOTION-GRAPHICS.md": "886f05182cc14ad7d54506b9dca991a2736a85c8bbe892bae6355bc425f1663c",
+    "docs/wiki-design/lib/ui-foundation/REFERENCE-STUDY-NONDEV-MOTION-DICTIONARY.md": "8503b241d3fa5db4f23ec9b7b28456a40882d731d51bc0501ee6d47fafcee38b",
+    "docs/wiki-design/lib/ui-foundation/REFERENCE-STUDY-PHYSICAL-BOOK-INTERACTION.md": "1c42e75673f63de3c953129c3dd03303d7fa240b60637d9930f544a27913a6b8",
+    "docs/wiki-design/lib/ui-foundation/REFERENCE-STUDY-QUIET-GLASS-WORKSPACE.md": "a93db53bd598beee9ffd8029ac2951502e1272ab4a03f36e1d9a1e0cae9a6958",
+    "docs/wiki-design/lib/ui-foundation/REFERENCE-STUDY-RARE-UI.md": "cfaf3400e9293cc23e6f8c67a443adfe7cc0a0d193b7a00485b1c92b4b367b9e",
+    "docs/wiki-design/lib/ui-foundation/REFERENCE-STUDY-SARANG-SITE-NAVIGATION.md": "8b886e193e7520e6934948bc98c241bb4390ad32309acb2b50ec9214938ca669",
+    "docs/wiki-design/lib/ui-foundation/REFERENCE-STUDY-SEGMENTED-CONTROLS.md": "483117600d6fe45273a7fce43ce5fad566fcdcdfb398f8d26df582a1bdf6a16d",
+    "docs/wiki-design/lib/ui-foundation/REFERENCE-STUDY-SETTINGS-PANELS.md": "72d44dd4a29c76011249450fabea62eb56e26cb270cba4e6ea0e0879f7ca444f",
+    "docs/wiki-design/lib/ui-foundation/REFERENCE-STUDY-SHADCN-COMPONENT-TRANSFER.md": "9f89149b84b4f2a71399f975b0f3f510a19024eaa26e2d8764550a80409960b4",
+    "docs/wiki-design/lib/ui-foundation/REFERENCE-STUDY-SMOOTHUI.md": "c471207282d47f589280faf1f4280a8c746480199601aae330835e4e1f9c3383",
+    "docs/wiki-design/lib/ui-foundation/REFERENCE-STUDY-VIBE-PROMPTS.md": "b57392c93abadc626cf64fb22fcd436222d7466eafa74aa29d6bcb3f073a91e7",
+    "docs/wiki-design/lib/ui-foundation/REFERENCE-STUDY-WEATHER-ORB-WIDGET.md": "f03551286ce04f0fbd110f3fc519665f2b4e0080c18211c831ebbda05c73f57b",
+    "docs/wiki-design/lib/ui-foundation/REFERENCE-STUDY-WHITE-INSTRUMENT.md": "c5f017299efbebc9cb4ecfacf8dde24234d685756ec83f56ae36fd75d13bae91",
+    "docs/wiki-design/lib/ui-foundation/REFERENCE-STUDY-WORKFLOW-BUILDER.md": "e16cfef3685097206caaf72102bd8e2949094f24c6fedd21e6dc448c1f09e03b",
+    "docs/wiki-design/lib/ui-foundation/tokens/tokens.css": "679f51eea7a42a7d054337bfd686576b209e65545ce446f6c324f69118cdae9b",
+    "docs/wiki-design/lib/ui-foundation/tokens/tokens.json": "77a167161f7395c6244993748fa8d589d256c33079054334418a91c1dd097b1f",
+    "docs/wiki-design/lib/ui-lab/README.md": "7c75ba33de8f36de0547802604a78445b61e3bd099e039ae744c7bef73bf4949",
+    "docs/wiki-design/README.md": "b65ce27b5ca171a6a1b1f70e824c3647534af8840d66c61993efeaed042d9539",
+    "docs/wiki-design/UI-Portal/INTAKE-WORKFLOW.md": "23a2ba25825415fe107ca0dcdcf4dcf934857ad9a685e212cb50bbed8dd4ac93",
+    "docs/wiki-design/UI-Portal/README.md": "91652d73fdffbb1b1c35af1928a26be3ce4e70a64891047b5cb1865e221eb64b",
+    "UI-FOUNDATION-DESIGN-GUIDE.md": "246fc093f1a2d77064e3da68285cc6e4fab4654a808b10a9c672d909999b8b06"
+  },
+  "agentBlockSha256": "69674b21306be50f6f8c366a31bf98cbfb98352e1405866fb6c49bb45144264f",
+  "previousAgentBlock": "<!-- ui-foundation-design-guide:start -->\r\n## UI Foundation Lab 디자인 가이드\r\n\r\n- 모든 UI 설계·구현 전에 [UI-FOUNDATION-DESIGN-GUIDE.md](UI-FOUNDATION-DESIGN-GUIDE.md)를 먼저 읽는다.\r\n- UI Foundation Lab 왼쪽 패널의 26개 UI를 모두 `Priority 1` 디자인 후보로 취급한다.\r\n- `Priority 1` 안에서는 Clear glass search, controls, workflow를 가장 먼저 검토한다.\r\n- 나머지 Lab specimen을 검토한 뒤에만 앱 전용 신규 디자인이나 외부 reference를 고려한다.\r\n- 이 프로젝트의 기존 제품 제약과 더 엄격한 접근성·runtime 규칙은 그대로 유지한다.\r\n<!-- ui-foundation-design-guide:end -->"
+}

@@ -2,12 +2,12 @@
 title: "Owen UI Foundation & Lab 개발 가이드"
 type: synthesis
 tags: [topic/ui-ux, topic/frontend, topic/design-system, topic/accessibility, topic/testing, type/synthesis]
-sources: ["AGENTS.md", "lib/ui-foundation/DESIGN.md", "lib/ui-foundation/AI-USAGE.md", "lib/ui-foundation/README.md", "lib/ui-foundation/src/index.ts", "lib/ui-lab/README.md", "lib/ui-lab/tests/ui-lab.spec.ts"]
+sources: ["AGENTS.md", "UI-Portal/README.md", "UI-Portal/INTAKE-WORKFLOW.md", "docs/ui-portal-ai-usage-operations.md", "lib/ui-foundation/DESIGN.md", "lib/ui-foundation/AI-USAGE.md", "lib/ui-foundation/README.md", "lib/ui-foundation/src/index.ts", "lib/ui-lab/README.md", "lib/ui-lab/tests/ui-lab.spec.ts"]
 created: 2026-08-08
-updated: 2026-08-08
+updated: 2026-10-17
 confidence: 0.94
-last_confirmed: 2026-08-08
-stale_after: 2027-02-04
+last_confirmed: 2026-09-07
+stale_after: 2027-03-06
 supersedes: []
 superseded_by: ""
 ---
@@ -16,11 +16,14 @@ superseded_by: ""
 
 # Owen UI Foundation & Lab 개발 가이드
 
+> [!important]
+> **원본 수집 예외:** 디자인 학습·내재화·내제화 구현은 원본 디자인과 동작을 동일하게 재현하며 별도 요청 없는 재해석을 금지한다. 이 문서의 Foundation-first, Clear, focus, scrollbar, locale 기본값은 Portal 외곽과 일반 Owen 제품 UI에 적용한다. 수집 원본은 독립 runtime에 격리하고 원본 스타일·상태·변형을 보존한다. 각 항목의 실제 구현·직접 실행 URL·원본 비교가 필요하며, 설명이나 소수 공통 예제로 대체하지 않는다. 상세 절차는 [UI Portal 원본 수집 절차](docs/wiki-design/UI-Portal/INTAKE-WORKFLOW.md)를 따른다.
+
 ## Query Capsule
 
-- **답하는 질문**: Owen 제품 UI를 만들 때 Foundation API와 UI Lab specimen을 어떤 순서와 경계로 선택·조합·검증하는가?
-- **핵심 판단/주장**: 화면의 output job을 정의한 뒤 Clear Glass 3종을 가장 먼저 검토하고, 이어서 UI Lab 왼쪽 메뉴의 모든 디자인을 1순위 후보군으로 검토한다. Foundation API와 검증된 composition을 조합하며 앱은 업무 데이터와 copy, orchestration만 소유한다.
-- **우선 읽을 섹션**: 1순위 디자인 검토 순서, 60초 의사결정, 화면 라우터, UI Lab 전체 후보 지도, Foundation·앱·Lab 소유권, 구현 절차, 검증 게이트
+- **답하는 질문**: Owen 제품 UI를 만들 때 UI Portal에서 어떤 exact asset을 고르고 Foundation API와 UI Lab specimen을 어떤 경계로 조합·검증하는가?
+- **핵심 판단/주장**: 화면의 output job을 정의한 뒤 UI Portal query로 Task Profile, Context Pack, Implementation Brief와 exact Asset ID를 얻는다. 먼저 정보 구조와 동작을 설계하고, 선택된 owner 문서와 API를 확인해 각 조작면에 Clear 디자인 또는 shadcn/ui 중 더 적합한 구현을 고른다. 앱은 업무 데이터와 copy, orchestration만 소유한다.
+- **우선 읽을 섹션**: UI Portal-first 라우팅, 1순위 디자인 검토 순서, 60초 의사결정, 화면 라우터, UI Lab 전체 후보 지도, Foundation·앱·Lab 소유권, 구현 절차, 검증 게이트
 - **근거 범위**: Owen UI Foundation canonical design/API 문서, package public exports, UI Lab specimen 및 Playwright 회귀 계약
 - **보강 확인이 필요한 summary/source**: [[ui-design-system-knowledge]], [[ui-skills-priority-absorption]], [[destructive-confirmation-interaction]], [[emil-kowalski-design-engineering-skills-absorption]]
 
@@ -28,13 +31,54 @@ superseded_by: ""
 > 이 문서는 UI 개발의 실행 라우터다. 시각·동작 결정의 단일 진실 출처는 `lib/ui-foundation/DESIGN.md`, 현재 API와 maturity의 단일 진실 출처는 `lib/ui-foundation/AI-USAGE.md`와 `src/index.ts`다. 이 문서는 그 계약을 제품 화면 설계, 구현, 검증 순서로 연결한다.
 
 > [!decision]
-> 기본 순서는 **output job → Clear Glass 3종 → UI Lab 왼쪽 메뉴 전체 → Foundation composition/API → 앱 데이터·copy → 실제 앱 검증**이다. Clear가 1순위 후보군 안에서도 가장 먼저이며, 같은 목적의 Foundation API나 Lab composition이 있으면 앱 전용 디자인을 먼저 만들지 않는다.
+> 기본 순서는 **output job → UI Portal query → exact Asset ID·owner 확인 → 정보 구조·동작 설계 → Clear 또는 shadcn/ui 선택 → 앱 데이터·copy → 실제 앱 검증**이다. Clear와 shadcn/ui를 매번 함께 쓰도록 강제하지 않는다. Registry 전체를 임의 탐색하거나 ID를 추측하지 않으며, 같은 목적의 Foundation API나 Lab composition이 있으면 앱 전용 디자인을 먼저 만들지 않는다.
 
 > [!important]
-> **UI Foundation Lab 왼쪽 패널의 UI 26개는 전부 Priority 1이다.** Clear search, controls, workflow는 그 26개 중 가장 먼저 보는 최우선 3개다. 나머지 23개도 모두 동일한 1순위이며, 앱 전용 신규 디자인이나 외부 reference만 그 다음 순위다.
+> **UI Foundation Lab 왼쪽 패널의 UI 30개는 전부 Priority 1이다.** Clear search, controls, workflow는 그 30개 중 가장 먼저 보는 최우선 3개다. 나머지 27개도 모두 동일한 1순위이며, 앱 전용 신규 디자인이나 외부 reference만 그 다음 순위다.
+
+UI 자산을 검토하거나 고를 때는 [UI Portal](docs/wiki-design/UI-Portal/README.md)을 먼저 연다. `http://127.0.0.1:4172/portal/`은 UI LAB, UI Foundation, UI 시스템을 상단 탭으로 연결하고 Foundation API, specimen, reference study, 지식 문서, prompt, screenshot, validation tool과 template을 통합 Asset Library로 검색·선택한다. 구현 원본은 각 canonical owner에 유지한다. 서버 없이 단일 목록만 확인할 때는 [UI Foundation Catalog](D:/GITHUB/wiki/docs/ui-foundation/index.html)를 보조 경로로 사용한다.
+
+## UI Portal-first 라우팅
+
+UI·UX, frontend, component, 접근성, 반응형 또는 시각 자산 작업은 파일을 편집하기 전에 UI Portal의 task-specific query로 시작한다. Portal은 구현 owner를 대체하는 디자인 시스템이 아니라, 현재 Registry에서 작업에 맞는 자산과 근거를 좁히는 선택 라우터다.
+
+```powershell
+node scripts/ui-portal/query-assets.mjs brief "<한 문장의 output job>" --limit 5
+```
+
+반환된 결과에서 다음을 확인한다.
+
+| 확인 항목 | 사용 규칙 |
+| --- | --- |
+| Task Profile | 사용자, surface, interaction, state, density, responsive 요구가 실제 작업과 맞는지 확인한다 |
+| Context Pack | primary·supporting·validation role이 빠짐없이 채워졌는지 확인한다 |
+| exact Asset ID | Registry에 존재하는 ID만 선택하고 이름이나 경로로 ID를 추측하지 않는다 |
+| `ownerPath` / `ownerApi` | generated Registry가 아니라 canonical owner source와 public API를 편집·사용한다 |
+| maturity / validation | experimental·unvalidated 자산을 stable·검증 완료로 표현하지 않는다 |
+| `bestFor` / `avoidWhen` | 단순 키워드 일치가 아니라 output job과 사용 금지 조건으로 채택 여부를 판단한다 |
+
+후보를 선택할 때는 exact ID를 다시 검증하고 selection receipt를 남길 수 있다.
+
+```powershell
+node scripts/ui-portal/query-assets.mjs select "<한 문장의 output job>" `
+  --id "<exact-asset-id>" `
+  --output "dev/temp/ui-portal-selection.json"
+```
+
+- Registry 전체를 모델 컨텍스트에 넣거나 검색 결과에 없는 자산을 추측하지 않는다.
+- Portal 결과만 보고 구현하지 않는다. 선택된 `ownerPath`, `ownerApi`, Foundation maturity와 관련 specimen을 읽고 실제 제약을 확인한다.
+- 일반 제품 UI는 Foundation owner를 재사용·확장한다. `UI-Portal/assets/`의 generated 파일은 직접 편집하지 않는다.
+- 디자인 수집·내재화 요청은 일반 제품 라우팅과 다르다. [UI Portal 원본 수집 절차](docs/wiki-design/UI-Portal/INTAKE-WORKFLOW.md)의 분석 → 구현 승인 → 원본 격리 구현·브라우저 제시 → 검증 승인 → Registry 승격 순서를 따르며, 수집 원본에 Foundation·Clear를 덮어쓰지 않는다.
+- Portal 또는 WIKI에 접근할 수 없으면 임의 대체하지 않고 선택·검증하지 못한 범위를 결과에 명시한다.
 
 > [!warning]
 > UI Lab의 mockup, sample copy, metric, brand, 전체 화면은 제품 코드로 import하거나 복제하지 않는다. Lab은 독립 transfer specimen과 회귀 검증 표면이다.
+
+## 프로젝트 간 공통 가이드 동기화
+
+`D:\GITHUB` 아래 각 프로젝트는 이 개발 가이드와 Foundation `DESIGN.md`·`AI-USAGE.md`, 참조 연구·토큰의 동일한 관리형 복사본을 사용한다. 공통 기준은 WIKI에서 수정하고, 소비 프로젝트의 제품별 설계 결정과 더 엄격한 보안·접근성 제약은 보존한다.
+
+WIKI를 VS Code에 열어둔 동안 **Shared Design Guide Sync** 작업이 변경을 자동 전파한다. 각 프로젝트의 `AGENTS.md` 공통 블록과 Copilot 지침도 최신 공통 문서로 연결된다. 프로젝트의 `docs/wiki-design/README.md`에서 필요한 문서만 선택하고, 복사본은 직접 편집하지 않는다. 수동 실행·검사·충돌 복구와 닫힌 동안의 처리 방식은 [동기화 운영 절차](docs/wiki-design/docs/project-design-guide-sync.md)를 따른다.
 
 ## 60초 의사결정
 
@@ -51,9 +95,18 @@ UI 작업을 시작하기 전에 아래 여섯 문장을 채운다.
 
 이 답이 없으면 visual style을 고르지 않는다. 특히 “모던한 대시보드”, “glass UI”, “카드형 화면”은 output job이 아니다.
 
+### 새 UI의 시각 방향 탐색
+
+새 화면을 설계하고 시각 방향이 아직 열려 있거나 사용자가 방향 탐색을 요청한 경우에만 사용한다. 기존 화면의 작은 수정, 기능 추가, 흐름 개선, 이미 합의된 방향의 구현에는 이 단계를 추가하지 않는다.
+
+- UI Portal 결과와 실제 제품 맥락을 바탕으로 최대 세 개의 방향 카드를 작성한다. 각 카드는 제품에서 출발한 시각적 중심, 첫 화면의 구성, 타이포그래피·색상·이미지 접근과 주요 trade-off를 설명한다. 단순히 “미니멀”, “대담함”처럼 형용사만 바꾸거나 같은 레이아웃의 색상 변형을 별도 방향으로 세지 않는다.
+- 현재 제품의 브랜드·Foundation 소유권·Clear 우선·기능 요구를 먼저 적용한다. 외부 예시의 화면, 문구, 브랜드, 수치, 자산을 복사하지 않는다.
+- 추천 방향과 이유를 제시하고, 사용자의 선택이 핵심 구성을 바꿀 때는 구현 전에 선택을 확인한다. 사용자가 이미 방향을 정했거나 바로 구현을 요청한 경우에는 불필요한 선택 단계를 반복하지 않는다.
+- 실제 비교 화면이 요청되면 동일한 콘텐츠와 시점의 정적 첫 화면만 나란히 만든다. 상호작용·반응형·접근성 검증을 수행한 것처럼 표현하지 않는다. 선택 후에는 고른 방향만 실제 제품 상태와 반응형·접근성 기준으로 구현·검증한다.
+
 ## 1순위 디자인 검토 순서
 
-Owen UI 개발의 시각 선택은 두 단계로 시작한다. UI Foundation Lab 왼쪽 패널 26개가 모두 1순위이며, 그 안에서 Clear가 가장 먼저다.
+Owen UI 개발의 시각 선택은 두 단계로 시작한다. UI Foundation Lab 왼쪽 패널 29개가 모두 1순위이며, 그 안에서 Clear가 가장 먼저다.
 
 ### Priority 1A — Clear first
 
@@ -74,6 +127,19 @@ Clear는 search, toolbar, segmented mode, command, form control, select/menu, ov
 
 blur나 투명 배경 하나만 적용한 것은 Foundation Clear가 아니다. Clear가 1순위라는 말도 긴 본문, dense table, 반복 list row, settings body, data visualization substrate까지 투명하게 만든다는 뜻은 아니다. 이 content body는 opaque surface를 유지하고 그 위의 control·navigation·command layer에 Clear를 적용한다.
 
+### Clear 또는 shadcn/ui 선택
+
+일반 제품 UI는 정보 구조, 상호작용, 상태, 밀도를 먼저 설계한 뒤 각 조작면에 **Clear 디자인 또는 shadcn/ui 중 더 적합한 구현을 선택한다.** Dropdown Menu, Tabs, Dialog, Popover, Calendar, Date Picker, Combobox는 shadcn/ui의 주요 후보이며, search, toolbar, segmented control, command layer와 작고 떠 있는 조작면은 Clear의 주요 후보다. Button, Input/Field, Checkbox, Radio Group, Tooltip, Command, Data Table도 작업에 맞는 후보를 검토한다. 구현 brief에는 선택한 체계, 컴포넌트·변형·상태와 선택 이유를 명시한다.
+
+- 같은 역할의 Foundation public API가 있으면 해당 API를 먼저 재사용하고, 부족한 계약은 Foundation owner에서 확장한다.
+- Foundation에 같은 역할이 없으면 Clear 또는 확인된 shadcn/ui 구현 중 설계 목적에 맞는 쪽을 사용하며 앱별 primitive를 새로 만들지 않는다.
+- Clear와 shadcn/ui를 한 화면이나 한 컴포넌트에 기계적으로 혼합하지 않는다. 일관된 상태 문법, keyboard semantics와 surface hierarchy를 만족할 때만 함께 사용한다.
+- Dropdown Menu, Popover, Dialog 같은 떠 있는 조작면에는 Clear를 선택적으로 적용하고, menu item·calendar grid·form body처럼 반복되거나 밀도 높은 내용은 불투명 면을 유지한다.
+- Tabs와 Combobox는 keyboard semantics, active/selected state, accessible name, disabled state와 좁은 폭 reflow를 보존한다.
+- Calendar와 Date Picker는 날짜 keyboard navigation, locale, disabled date, range·single mode, popover positioning을 실제 요구에 맞게 검증한다.
+- **Native Select는 설계 후보에서 제외하며 사용하지 않는다.** option 선택은 Foundation `SelectControl`, Clear 방식의 검증된 선택 UI 또는 작업에 맞는 shadcn/ui Select·Combobox 중에서 고른다.
+- 수집 원본 runtime에는 이 규칙을 강제로 적용하지 않는다. 원본이 사용한 component engine과 스타일·동작을 그대로 보존한다.
+
 ### Priority 1B — UI Lab 왼쪽 메뉴 전체
 
 Clear 3종을 검토한 다음에는 UI Lab 왼쪽 navigation에 노출된 모든 specimen을 앱 전용 새 디자인보다 먼저 고려한다. 아래 항목은 모두 1순위 디자인 후보군이다.
@@ -81,10 +147,13 @@ Clear 3종을 검토한 다음에는 UI Lab 왼쪽 navigation에 노출된 모�
 | Lab 메뉴 | Lab hash | 우선 검토하는 UI 문제 |
 | --- | --- | --- |
 | Layered stacks | `#layered-stacks` | preview, persistent label tray, metadata, local command, selected state가 있는 clear layered widget/collection |
+| Knowledge rooms | `#knowledge-rooms` | room·collection 단위의 note, link, image, evidence를 stable navigation과 offline cache로 탐색 |
 | Feature showcase | `#feature-showcase` | 2-6개 기능을 inert UI preview와 짧은 copy로 설명하는 section |
 | Micro UI board | `#micro-ui` | compact board, shelf, composer, dock, orb action이 있는 micro collection |
 | Theme workbench | `#theme-workbench` | semantic token 편집, scoped preview, contrast validation |
 | White instrument | `#instrument-profile` | hero metric 1개, supporting stat, exact progress와 target이 있는 telemetry |
+| Mono telemetry | `#mono-telemetry` | 30개 chart family, exact value, tooltip, filter, reduced motion을 고르는 데이터 시각화 reference |
+| Weather orb | `#weather-orb-widget` | 위치·보기·단위·언어 filter 위에서 semantic weather와 decorative orb를 분리하는 widget group |
 | Glint widgets | `#glint-widgets` | 날씨·일정·배터리처럼 compact contextual signal 1개 |
 | Cloud Desk | `#cloud-desk` | stable navigation, opaque work plane, optional utility rail이 있는 quiet workspace |
 | Flying panels | `#hierarchical-flying-panels` | stable anchor에서 primary/secondary panel로 깊은 hierarchy 탐색 |
@@ -100,6 +169,7 @@ Clear 3종을 검토한 다음에는 UI Lab 왼쪽 navigation에 노출된 모�
 | Motion graphics | `#motion-graphics` | bounded scene orchestration과 React pointer feedback |
 | Liquid DOM | `#liquid-dom` | capability-gated renderer와 CSS fallback이 필요한 experimental scene |
 | Query builder | `#query-builder` | field/operator/typed-value와 explicit AND/OR가 있는 operational filter |
+| Workflow builder | `#workflow-builder` | graph canvas, typed node, recommendation, execution evidence가 있는 workflow editor |
 | Operational data | `#operational-data` | caption, sorting, selection, loading/empty를 갖는 dense table |
 | State language | `#state-language` | loading, empty, error, partial, offline, success vocabulary |
 | Form and actions | `#form-actions` | field, select, save, ordinary confirmation, high-risk confirmation |
@@ -109,6 +179,11 @@ Clear search/controls/workflow도 이 전체 후보군에 포함되지만 항상
 ### 선택 결과 기록
 
 ```markdown
+Portal query: {{one-sentence output job}}
+Task Profile / Context Pack: {{matched roles and constraints}}
+Exact Asset IDs: {{validated ids}}
+Owner paths / APIs: {{canonical sources}}
+Maturity / validation: {{status and limits}}
 Clear review: search / controls / workflow 중 {{adopted_or_rejected}}
 Clear placement: {{control, navigation, overlay, dock, active state, widget boundary}}
 Opaque body: {{table, text, rows, settings, visualization}}
@@ -174,7 +249,7 @@ Validation: keyboard path / axe / overflow / dark / reduced motion / screenshots
 | 모바일 상품 탐색 | Mobile Commerce | `MobileCommerce*` | `#mobile-commerce` | product/order opaque, primary action 명확 |
 | micro collection/library | Micro UI | `MicroUi*` | `#micro-ui` | board/card opaque, command/dock glass |
 | compact telemetry | Glint | `GlintWidget` | `#glint-widgets` | widget당 signal 1개 |
-| graph workflow builder | app-owned experimental | `@xyflow/react` + 앱 state | source only | `WorkflowBuilder*`를 stable로 가정하지 않음 |
+| graph workflow builder | experimental `WorkflowBuilder*` + app-owned graph engine | `WorkflowBuilder*` + `@xyflow/react` | `#workflow-builder` | graph state·layout·execution engine은 앱 소유 |
 | 이미지 중심 고정 순서 이야기 | Physical Book reference | app-owned state machine | `#physical-book-interaction` | 운영 UI와 긴 reader에는 사용 금지 |
 
 ### 화면 라우터 선택 규칙
@@ -186,13 +261,30 @@ Validation: keyboard path / axe / overflow / dark / reduced motion / screenshots
 5. 한 화면에 composition을 여러 개 섞을 때는 shell 1개와 content pattern 1-2개로 제한한다.
 6. Lab-only reference는 구조를 학습하는 자료이며 package import 대상이 아니다.
 
+### MDBOX 설정 화면 기준 계약
+
+별도 제품 요구가 없으면 앱 환경설정은 현재 MDBOX 설정 화면을 기본 레퍼런스로 사용한다.
+
+- **전체 프레임**: 넓은 화면은 좌측 고정 폭 카테고리 메뉴, 중앙의 스크롤 가능한 설정 작업면, 우측의 선택 항목 맥락 도움말로 구성한다. 열 사이에는 명확한 divider를 두며, 좁은 화면에서는 기존 반응형 책임 재배치 규칙에 따라 메뉴와 도움말을 compact navigation 및 본문 하단 영역으로 옮긴다.
+- **메뉴 패널**: 상단에는 설정 제목과 닫기 명령을 두고, 아래에는 일관된 아이콘과 라벨의 카테고리를 세로 정렬한다. 선택 항목은 옅은 accent surface와 border 등 색상 이외의 신호를 함께 사용하며, 비선택 항목은 낮은 강조도로 유지한다.
+- **설정 그룹**: 각 그룹은 하나의 bordered `SettingsPanel`이다. 첫 행은 패널 외곽 폭과 모서리를 공유하는 edge-to-edge tinted header이며, 좌측 accent 아이콘 타일, 간결한 제목, 한 줄 설명을 둔다. 본문 행은 같은 패널 안에서 divider로 이어지고 중첩 카드나 inset floating header를 만들지 않는다.
+- **설정 행**: 좌측에는 의미 아이콘, 제목, 한 줄 보조 설명을 배치하고 우측에는 해당 값의 실제 control만 둔다. 행 높이와 trailing control 정렬선을 일정하게 유지하며, 좁은 폭에서는 control을 설명 아래로 reflow한다.
+- **시각 밀도**: 밝은 neutral background, opaque setting surface, 얇은 border, 작은 radius, 절제된 shadow를 기본으로 한다. 청록·하늘색 계열 accent는 선택 상태와 주요 control에 제한하고, 큰 카드·과도한 capsule·장식적 hero보다 스캔성과 반복 조작 효율을 우선한다.
+- **완료 조건**: `SettingsPanel*`와 `FrostedScrollArea`를 우선 재사용하고, 한국어와 영어 모두에서 메뉴 라벨, 설명, control 값의 overflow 및 desktop/mobile reflow를 실제 브라우저로 확인한다.
+
 ## 컴포넌트 라우터
 
 | 요구 | 먼저 사용할 API | 반드시 함께 구현할 계약 | 피할 구현 |
 | --- | --- | --- | --- |
 | 저장·실행·재시도 | `ActionButton` | loading 중 중복 실행 방지, 명시적 variant | 새 button primitive, clickable `div` |
 | label·도움말·오류 입력 | `FormField` | label/help/error/required/disabled ARIA 연결 | label과 error를 따로 조립 |
-| option·typeahead 선택 | `SelectControl` | keyboard, form value, popup positioning | 직접 만든 listbox |
+| option 선택 | Foundation `SelectControl` 또는 shadcn/ui Select | keyboard, form value, popup positioning | Native Select, 직접 만든 listbox |
+| 검색 가능한 option 선택 | shadcn/ui Combobox | input/listbox 연결, filtering, empty, keyboard, accessible name | select와 input을 임의 조합 |
+| 맥락 명령 목록 | shadcn/ui Dropdown Menu | trigger name, keyboard 이동, disabled·destructive state, 닫힘 후 focus 복귀 | hover-only menu, 직접 만든 popup |
+| 보기·작업면 전환 | shadcn/ui Tabs | tablist/tab/tabpanel 연결, active state, keyboard 이동, narrow overflow | button 행으로 tab을 흉내 내기 |
+| modal 작업·확인 | `ResponsiveOverlay` 또는 shadcn/ui Dialog | title·description, Escape, focus trap·restore, narrow sheet 판단 | 앱별 modal·focus trap |
+| 비차단 보조 조작면 | shadcn/ui Popover | trigger state, outside click, Escape, positioning, focus 복귀 | tooltip에 interactive content 삽입 |
+| 날짜·기간 선택 | shadcn/ui Calendar·Date Picker | locale, keyboard 날짜 이동, disabled date, single·range mode, popup positioning | 텍스트 입력만 제공, 직접 만든 calendar grid |
 | 비동기 영역 | `AsyncState` | loading/empty/error/partial/offline/success | spinner만 표시 |
 | compact 상태 | `StatusBadge` | text 또는 icon을 색과 함께 사용 | 색상 dot만 표시 |
 | 정렬·선택 표 | `OperationalDataTable` | caption, sort, selection, loading/empty | table을 card grid로 변환 |
@@ -253,6 +345,7 @@ Glass는 translucent fill, directional rim, backdrop filter, broad low-alpha sha
 
 ### Geometry와 계층
 
+- 새로 만들거나 수정하는 일반 제품 UI의 모든 라운드 코너는 [Continuous Corner Default](docs/wiki-design/lib/ui-foundation/DESIGN.md#continuous-corner-default)를 따른다. 직선과 원호를 바로 잇는 circular 대신 전환 곡선으로 곡률을 부드럽게 연결하며, 단순 `border-radius` 확대만으로 대체하지 않는다. 수집 원본과 완전한 원의 형상은 보존한다.
 - 일반 운영 panel은 8px radius를 유지한다.
 - control은 6px radius 또는 명시적인 pill/circle 계약을 사용한다.
 - rounded-panel ratio는 새로 의도한 rounded surface에만 opt-in한다.
@@ -297,14 +390,17 @@ Foundation은 focus rim을 사용하지 않는다. `outline`, focus-only `box-sh
 
 ## Scroll과 밀도
 
-스크롤 가능한 제품 panel에는 `FrostedScrollArea`를 기본 후보로 사용한다. native wheel, touch, keyboard semantics는 viewport에 남기고 Foundation의 2px rail과 44px local glass grip을 사용한다.
+모든 웹 기반 페이지·앱·대시보드·편집기·preview·catalog·목업은 document-level 세로 scroll과 앱이 소유한 panel/menu/list 세로 scroll에 `FrostedScrollArea`를 기본 적용한다. 별도 요청이나 custom scrollbar 필요성 판단을 기다리지 않는다. Native wheel, touch, keyboard semantics는 실제 viewport에 남기고 Foundation의 2px rail과 content ratio와 무관한 configurable compact local Clear glass grip을 사용한다. Desktop native arrow와 viewport 비율 길이 thumb는 노출하지 않는다.
+
+React surface는 `FrostedScrollArea` component를 사용한다. 정적 HTML, Electron webview, 외부 preview처럼 직접 import할 수 없는 surface도 `frostedScrollAreaStylesApi`와 동일한 root/viewport/rail/grip anatomy와 동작을 구현한다. 문서 페이지 자체도 예외가 아니며 window/document scroll에 같은 overlay rail과 fixed grip을 연결한다.
 
 예외:
 
 - horizontal chip/tab scroller
 - 운영체제 scrollbar를 명시적으로 존중해야 하는 화면
 - virtualized list engine이 scrollbar를 직접 소유하는 화면
-- browser document 자체의 page scroll
+
+예외는 구현 brief와 완료 보고에 owner와 이유를 기록한다. Dropdown, select popup, command menu, long list, inspector, modal body처럼 앱이 직접 만든 세로 scroll은 모두 기본 적용 대상이다.
 
 keyboard로 직접 스크롤해야 하면 `viewportProps={{ tabIndex: 0, "aria-label": "..." }}`를 제공한다. panel content를 단순히 `overflow: hidden`으로 잘라 focusable element를 숨기지 않는다.
 
@@ -321,7 +417,7 @@ keyboard로 직접 스크롤해야 하면 `viewportProps={{ tabIndex: 0, "aria-l
 | persistent utility rail | work plane 아래 utility section |
 | movable/resizable flying panel | in-flow disclosure |
 
-검증 폭은 viewport만 보지 않는다. sidebar, inspector, split pane 안의 실제 component container 폭도 검사한다. 320px viewport에서도 44px target, type hierarchy, radius token을 줄이지 않는다.
+검증 폭은 viewport만 보지 않는다. sidebar, inspector, split pane 안의 실제 component container 폭도 검사한다. 좁은 viewport에서도 입력 방식에 맞는 target, type hierarchy, radius token과 충분한 조작 간격을 유지한다.
 
 ## 상태 설계
 
@@ -422,12 +518,15 @@ UI Lab은 “무엇을 복사할까”가 아니라 “무엇을 검증해야 �
 
 ### 1. Inventory
 
-- `DESIGN.md`, `AI-USAGE.md`, `README.md`, `src/index.ts`를 읽는다.
+- output job을 한 문장으로 정하고 `node scripts/ui-portal/query-assets.mjs brief "<output job>" --limit 5`를 실행한다.
+- 반환된 Task Profile, Context Pack, exact Asset ID, `ownerPath`/`ownerApi`, maturity와 validation을 확인한다.
+- 선택된 owner의 `DESIGN.md`, `AI-USAGE.md`, `README.md`, `src/index.ts`와 관련 source를 읽는다.
 - Clear search/controls/workflow를 먼저 검토한다.
 - UI Lab 왼쪽 navigation 전체에서 관련 specimen을 고르고 검토·제외 이유를 기록한다.
 - 관련 reference study를 고른다.
 - 소비 앱의 framework, token, 기존 primitive, global CSS owner를 확인한다.
 - `components.json`이 있는 앱에서만 필요 시 `shadcn info --json`을 사용한다.
+- 외부 animation component registry는 바로 설치하지 않는다. Output job, state model, pointer·keyboard·touch parity, reduced/static motion, mobile persistent fallback, dependency budget, accessibility, provenance/license와 실제 URL audit를 먼저 기록한다. Rare UI에 적용한 전체 gate는 `lib/ui-foundation/REFERENCE-STUDY-RARE-UI.md`를 따른다.
 
 ### 2. Composition
 
@@ -446,7 +545,7 @@ UI Lab은 “무엇을 복사할까”가 아니라 “무엇을 검증해야 �
 
 - loading, empty, error, partial, offline, success 중 필요한 상태를 구현한다.
 - narrow viewport와 nested container에서 responsibility를 이동한다.
-- scroll owner를 하나로 정하고 필요한 panel에 `FrostedScrollArea`를 적용한다.
+- document와 각 app-owned vertical region의 scroll owner를 정하고 모두 `FrostedScrollArea` contract를 적용한다. 예외는 이유와 owner를 함께 기록한다.
 
 ### 5. Visual treatment
 
@@ -471,6 +570,9 @@ UI Lab은 “무엇을 복사할까”가 아니라 “무엇을 검증해야 �
 npm run check --prefix lib/ui-foundation
 npm run check --prefix lib/ui-lab
 .\.venv\Scripts\python.exe scripts\check-ui-reference-studies.py
+python scripts\check-ui-foundation-catalog.py
+node scripts\ui-portal\validate-registry.mjs
+node scripts\ui-portal\check-portal.mjs
 ```
 
 위 예시의 Python 경로는 저장소 `.venv`가 있을 때 사용한다. 환경에 따라 `python scripts\check-ui-reference-studies.py`로 실행한다.
@@ -494,6 +596,9 @@ npm run audit:url --prefix lib/ui-lab -- http://127.0.0.1:4173 --output ../../de
 ### 완료 전 체크리스트
 
 - [ ] output job과 primary action이 한 문장으로 설명된다.
+- [ ] UI Portal query 결과의 Task Profile과 Context Pack이 작업 요구와 일치한다.
+- [ ] exact Asset ID, `ownerPath`/`ownerApi`, maturity와 validation을 확인했다.
+- [ ] generated `UI-Portal/assets/`가 아니라 canonical owner를 사용했다.
 - [ ] Clear search, controls, workflow를 가장 먼저 검토했다.
 - [ ] UI Lab 왼쪽 navigation에서 output job과 관련된 모든 specimen을 후보로 검토했다.
 - [ ] 채택한 Clear layer와 opaque content body의 경계를 기록했다.
@@ -505,11 +610,12 @@ npm run audit:url --prefix lib/ui-lab -- http://127.0.0.1:4173 --output ../../de
 - [ ] focus에 outline, ring, border 변화, shadow, parent lift가 없다.
 - [ ] modal Escape와 trigger focus restore가 동작한다.
 - [ ] dense content는 opaque이고 glass가 기능적 경계에 제한된다.
-- [ ] scrollable panel은 `FrostedScrollArea` 적용 또는 예외 이유가 있다.
+- [ ] document-level scrollbar와 모든 app-owned vertical panel/menu/list에 `FrostedScrollArea`의 2px rail + configured compact grip이 적용됐거나 허용된 예외 이유가 있다.
 - [ ] dark, reduced motion, forced colors, 200% zoom을 확인했다.
 - [ ] axe violation, runtime error, failed resource, broken image가 없다.
 - [ ] 변경 전·후를 같은 viewport screenshot으로 비교했다.
 - [ ] text overlap, nested card, layout shift, 과도한 glass가 없다.
+- [ ] 디자인 수집 작업이면 구현 승인·브라우저 제시·검증 승인·Registry 승격 상태를 구분했다.
 
 ## 공통 anti-pattern과 교정
 
@@ -558,7 +664,8 @@ npm run audit:url --prefix lib/ui-lab -- http://127.0.0.1:4173 --output ../../de
 
 - States: {{loading/empty/error/partial/offline/success}}
 - Narrow behavior: {{reflow}}
-- Scroll owner: {{viewport/FrostedScrollArea/exception}}
+- Document scroll owner: {{FrostedScrollArea/allowed exception + reason}}
+- App vertical scroll owners: {{menu/list/panel/modal → FrostedScrollArea or allowed exception + reason}}
 
 ## Validation
 
